@@ -1,0 +1,425 @@
+
+/* =========================================
+   TECH PRODUCT MANAGER
+   Modern responsive dashboard stylesheet
+========================================= */
+
+/* 1. Global styles */
+:root {
+    --primary: #635bff;
+    --primary-dark: #4f46e5;
+    --navy: #111827;
+    --background: #f4f6fb;
+    --surface: #ffffff;
+    --text: #1f2937;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --success: #15803d;
+    --danger: #dc2626;
+    --radius: 16px;
+    --shadow: 0 8px 30px rgba(17, 24, 39, 0.06);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--background);
+}
+
+/* 2. Header */
+header {
+    position: relative;
+    overflow: hidden;
+    padding: 42px 20px;
+    text-align: center;
+    color: white;
+    background: linear-gradient(135deg, #111827 0%, #312e81 55%, #635bff 100%);
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    top: -150px;
+    right: 8%;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 35px rgba(255, 255, 255, 0.035),
+        0 0 0 70px rgba(255, 255, 255, 0.025);
+    pointer-events: none;
+}
+
+header h1 {
+    position: relative;
+    margin: 0 0 8px;
+    font-size: clamp(27px, 4vw, 38px);
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+header p {
+    position: relative;
+    margin: 0;
+    color: #e0e7ff;
+    font-size: 16px;
+}
+
+/* 3. Main layout */
+main {
+    width: min(1200px, 100%);
+    margin: 32px auto;
+    padding: 0 24px 40px;
+}
+
+/* 4. White dashboard panels */
+.panel {
+    margin-bottom: 26px;
+    padding: 28px;
+    background: var(--surface);
+    border: 1px solid rgba(229, 231, 235, 0.8);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.panel h2 {
+    margin: 0 0 22px;
+    color: var(--navy);
+    font-size: 21px;
+    font-weight: 750;
+    letter-spacing: -0.4px;
+}
+
+/* 5. Product form layout */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 21px;
+}
+
+.form-grid > div {
+    min-width: 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #374151;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* 6. Input fields */
+input,
+select,
+textarea {
+    display: block;
+    width: 100%;
+    min-height: 46px;
+    padding: 12px 14px;
+    color: var(--text);
+    background: #fff;
+    border: 1px solid #d8deea;
+    border-radius: 9px;
+    font: inherit;
+    font-size: 14px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #9ca3af;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+    border-color: #a5b4fc;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(99, 91, 255, 0.12);
+}
+
+textarea {
+    min-height: 46px;
+    resize: vertical;
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+/* 7. Buttons */
+button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    margin: 5px 5px 0 0;
+    padding: 11px 17px;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+        background 0.2s,
+        box-shadow 0.2s,
+        transform 0.15s;
+}
+
+button:hover {
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+button:focus-visible {
+    outline: 3px solid #a5b4fc;
+    outline-offset: 3px;
+}
+
+.primary {
+    color: white;
+    background: var(--primary);
+    box-shadow: 0 4px 10px rgba(99, 91, 255, 0.2);
+}
+
+.primary:hover {
+    background: var(--primary-dark);
+    box-shadow: 0 6px 15px rgba(99, 91, 255, 0.25);
+}
+
+.secondary {
+    color: #374151;
+    background: #f3f4f6;
+    border-color: #e5e7eb;
+}
+
+.secondary:hover {
+    background: #e5e7eb;
+}
+
+.edit {
+    color: #4338ca;
+    background: #eef2ff;
+    border-color: #e0e7ff;
+}
+
+.edit:hover {
+    background: #e0e7ff;
+}
+
+.delete {
+    color: #b91c1c;
+    background: #fef2f2;
+    border-color: #fee2e2;
+}
+
+.delete:hover {
+    background: #fee2e2;
+}
+
+/* 8. Status messages */
+#message {
+    min-height: 24px;
+    margin: 14px 0 8px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.success {
+    color: var(--success);
+}
+
+.error {
+    color: var(--danger);
+}
+
+/* 9. Product count */
+.stats {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: -8px 0 18px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+#productCount {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 29px;
+    padding: 3px 9px;
+    color: #4338ca;
+    background: #eef2ff;
+    border-radius: 20px;
+    font-weight: 800;
+}
+
+/* 10. Responsive product table */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 11px;
+}
+
+table {
+    width: 100%;
+    min-width: 850px;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: white;
+}
+
+thead th {
+    padding: 15px 14px;
+    color: #4b5563;
+    background: #f8fafc;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    white-space: nowrap;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+}
+
+tbody td {
+    padding: 15px 14px;
+    color: #4b5563;
+    border-bottom: 1px solid #edf0f5;
+    vertical-align: middle;
+    font-size: 13px;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr {
+    transition: background 0.15s;
+}
+
+tbody tr:hover {
+    background: #f8faff;
+}
+
+tbody td:first-child {
+    color: #6366f1;
+    font-weight: 800;
+}
+
+/* Action buttons in table */
+tbody td button {
+    margin: 2px 4px 2px 0;
+    padding: 7px 10px;
+    font-size: 12px;
+}
+
+/* 11. Accessibility and hidden elements */
+[hidden] {
+    display: none !important;
+}
+
+::selection {
+    color: white;
+    background: #635bff;
+}
+
+/* 12. Tablet screens */
+@media (max-width: 800px) {
+    main {
+        margin-top: 22px;
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+
+    .panel {
+        padding: 22px;
+    }
+
+    header {
+        padding: 34px 16px;
+    }
+}
+
+/* 13. Mobile screens */
+@media (max-width: 560px) {
+    body {
+        font-size: 14px;
+    }
+
+    header {
+        padding: 30px 16px;
+    }
+
+    header h1 {
+        letter-spacing: -0.5px;
+    }
+
+    header p {
+        font-size: 14px;
+    }
+
+    main {
+        margin: 16px auto;
+        padding: 0 11px 25px;
+    }
+
+    .panel {
+        margin-bottom: 17px;
+        padding: 18px 15px;
+        border-radius: 12px;
+    }
+
+    .panel h2 {
+        margin-bottom: 18px;
+        font-size: 19px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .full-width {
+        grid-column: auto;
+    }
+
+    input,
+    select,
+    textarea {
+        min-height: 44px;
+    }
+
+    button {
+        padding: 10px 13px;
+    }
+
+    .table-wrapper {
+        border-radius: 8px;
+    }
+}
